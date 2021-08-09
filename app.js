@@ -1,14 +1,14 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-const { resolve } = require("path");
 
 var port = process.env.PORT || 8080;
 
+app.use(express.static(__dirname + '/public'));
+
 app.get("/", (req, res) => {
     // Display checkout page
-    const path = resolve("./index.html");
-    res.send("HELLO");
+      res.sendFile("index");
   });
 
 app.listen(port, function() {
