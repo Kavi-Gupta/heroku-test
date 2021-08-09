@@ -3,6 +3,8 @@ const app = express();
 app.use(express.json());
 const { resolve } = require("path");
 
+var port = process.env.PORT || 8080;
+
 app.get("/", (req, res) => {
     // Display checkout page
     const path = resolve("./index.html");
@@ -15,4 +17,6 @@ app.get("/", (req, res) => {
     res.sendFile(path);
   });
 
-app.listen(3000, () => console.log(`Node server listening on port ${3000}!`));
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
