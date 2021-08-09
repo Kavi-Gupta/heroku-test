@@ -6,7 +6,7 @@ const { resolve } = require("path");
 app.get("/", (req, res) => {
     // Display checkout page
     const path = resolve("./index.html");
-    res.sendFile(path);
+    res.send("HELLO");
   });
 
   app.get("/style.css", (req, res) => {
