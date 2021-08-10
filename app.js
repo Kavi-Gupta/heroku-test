@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
+const { resolve } = require("path");
+require('dotenv').config()
 
 var port = process.env.PORT || 8080;
 
@@ -8,7 +10,8 @@ var port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
     // Display checkout page
-      res.sendFile("index.html);
+    path = resolve("./index.html")
+    res.sendFile(path);
   });
 
 app.listen(port, function() {
